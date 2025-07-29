@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Astrolink - Home</title>
+
+  <!-- Google Fonts + AOS -->
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-color: #ffffff;
+      --text-color: #111;
+      --card-bg: #f2f2f2;
+      --highlight: #4e9af1;
+    }
+    body.dark {
+      --bg-color: #121212;
+      --text-color: #ffffff;
+      --card-bg: #1e1e1e;
+      --highlight: #00e5ff;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      scroll-behavior: smooth;
+      transition: all 0.4s ease;
+    }
+
+    header {
+      padding: 15px 40px;
+      background: var(--card-bg);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo-section {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-section img {
+      height: 40px;
+    }
+
+    .logo-text {
+      font-size: 1.6rem;
+      font-weight: bold;
+      color: var(--highlight);
+    }
+
+    nav {
+      display: flex;
+      gap: 15px;
+    }
+
+    nav button {
+      padding: 10px 18px;
+      background: transparent;
+      border: 2px solid var(--highlight);
+      color: var(--highlight);
+      font-weight: bold;
+      border-radius: 30px;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s ease;
+    }
+
+    nav button::before {
+      content: '';
+      position: absolute;
+      left: -100%;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--highlight);
+      z-index: 0;
+      transition: left 0.4s ease;
+    }
+
+    nav button:hover::before {
+      left: 0;
+    }
+
+    nav button span {
+      position: relative;
+      z-index: 1;
+    }
+
+    nav button:hover {
+      color: var(--bg-color);
+      transform: scale(1.05);
+    }
+
+    .toggle-btn {
+      background: var(--highlight);
+      color: #fff;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    .toggle-btn:hover {
+      background: #007fc2;
+    }
+
+    .hero {
+      padding: 100px 30px;
+        background: url('C:\Users\DIPU KUMAR\Downloads\hero image.jpg') no-repeat center center/cover;
+
+      text-align: center;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .hero h1 {
+      font-size: 3.2rem;
+      margin-bottom: 20px;
+      color: var(--highlight);
+      animation: bounce 2s infinite;
+    }
+
+    .hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+ 
+  z-index: 1;
+}
+.hero p {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #0c356ec9; /* or #111 for more contrast */
+  line-height: 1.7;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+
+.overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Dark transparent overlay */
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  padding: 20px;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .services-section {
+      padding: 80px 30px;
+      background: var(--card-bg);
+      text-align: center;
+    }
+
+    .services-section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+      color: var(--highlight);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .service-card {
+      background: var(--bg-color);
+      padding: 30px 20px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px) scale(1.03);
+    }
+
+    .service-card img {
+      width: 60px;
+      margin-bottom: 20px;
+    }
+
+    .service-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+      color: var(--highlight);
+    }
+
+    .service-card p {
+      font-size: 0.95rem;
+      color: var(--text-color);
+      line-height: 1.5;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2rem; }
+      .services-section h2 { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo-section">
+      <img src="C:\Users\DIPU KUMAR\Downloads\Yellow and Blue Clean and Minimalist Tech Company Logo (1).png" alt="Astrolink Logo">
+      <div class="logo-text">Astrolink</div>
+    </div>
+    <nav>
+      <button><span>Home</span></button>
+            <a href="aboutuspage.html" style="text-decoration: none;">
+      <button><span>About Us</span></button></a>
+      <button><span>Services</span></button>
+      <a href="contactpage.html" style="text-decoration: none;">
+      <button><span>Contact Us</span></button></a>
+    </nav>
+    <button class="toggle-btn" onclick="toggleTheme()">Toggle Theme</button>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" data-aos="fade-up">
+    <h1>Welcome to Astrolink</h1>
+    <p>
+      Astrolink is your one-stop digital partner offering a wide range of services including web development, app development, UI/UX design, SEO, and cloud solutions. Our mission is to help startups and businesses scale with robust technology, intelligent design, and data-driven strategies. We believe in creativity, performance, and results.
+    </p>
+  </section>
+
+  <!-- Services Section -->
+  <section class="services-section" id="services">
+    <h2 data-aos="fade-up">Our Services</h2>
+    <div class="services-grid">
+      <div class="service-card" data-aos="zoom-in">
+        <img src="https://img.icons8.com/color/96/monitor--v1.png" alt="Web Development">
+        <h3>Web Development</h3>
+        <p>Custom websites that are responsive, fast, and SEO-ready to boost your brand and visibility online.</p>
+      </div>
+      <div class="service-card" data-aos="zoom-in" data-aos-delay="100">
+        <img src="https://img.icons8.com/color/96/design--v1.png" alt="UI/UX Design">
+        <h3>UI/UX Design</h3>
+        <p>Clean, user-centric interfaces that offer a delightful experience and reflect your brand perfectly.</p>
+      </div>
+      <div class="service-card" data-aos="zoom-in" data-aos-delay="200">
+        <img src="https://img.icons8.com/color/96/seo.png" alt="SEO Optimization">
+        <h3>SEO Services</h3>
+        <p>Increase your search engine ranking and traffic with proven white-hat SEO techniques and keyword strategies.</p>
+      </div>
+      <div class="service-card" data-aos="zoom-in" data-aos-delay="300">
+        <img src="https://img.icons8.com/color/96/android-os.png" alt="App Development">
+        <h3>App Development</h3>
+        <p>Native and hybrid mobile apps for Android & iOS with smooth performance and beautiful UI.</p>
+      </div>
+      <div class="service-card" data-aos="zoom-in" data-aos-delay="400">
+        <img src="https://img.icons8.com/color/96/combo-chart--v1.png" alt="Analytics">
+        <h3>Analytics</h3>
+        <p>Transform your raw data into insights using business dashboards, real-time monitoring, and reports.</p>
+      </div>
+      <div class="service-card" data-aos="zoom-in" data-aos-delay="500">
+        <img src="https://img.icons8.com/color/96/cloud.png" alt="Cloud Solutions">
+        <h3>Cloud Services</h3>
+        <p>Deploy scalable and secure cloud solutions to enhance your business continuity and performance.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 1000 });
+    function toggleTheme() {
+      document.body.classList.toggle('dark');
+    }
+  </script>
+</body>
+</html>
